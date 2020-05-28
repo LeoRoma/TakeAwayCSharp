@@ -33,18 +33,18 @@ namespace Takeaway
 
         public void PrintBill()
         {
-            List.Add("Total", Total);
+            List.Add("Total", TotalFormat());
             foreach (KeyValuePair<string, double> item in List)
             {
                 Console.WriteLine("{0}: {1}", item.Key, item.Value);
             }
-            //Console.WriteLine("Your total is: " + TotalFormat());
         }
 
         public void Payment(double totalPaid)
         {
-            bool status = TotalFormat().Equals(totalPaid);
-            if (status)
+            double difference = Math.Abs(TotalFormat() * .00001);
+
+            if (Math.Abs(TotalFormat() - totalPaid) <= difference)
             {
                
                 Console.WriteLine("Thank you for your purchase");
@@ -55,9 +55,9 @@ namespace Takeaway
             }
         }
 
-        private string TotalFormat()
+        private double TotalFormat()
         {
-            return String.Format("{0:0.00}", Total);
+            return Math.Round((Double)Total, 2);
         }
     }
 }
