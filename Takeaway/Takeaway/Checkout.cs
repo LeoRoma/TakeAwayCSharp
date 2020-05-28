@@ -46,12 +46,11 @@ namespace Takeaway
 
             if (Math.Abs(TotalFormat() - totalPaid) <= difference)
             {
-               
-                Console.WriteLine("Thank you for your purchase");
+                Console.WriteLine("Thank you for your purchase!");
             }
             else
             {
-                Console.WriteLine("Please insert the right amount");
+                throw new Exception("Please insert the right amount");
             }
         }
 
