@@ -24,7 +24,8 @@ namespace Takeaway
 
         public void Calculate()
         {
-            foreach(var item in List)
+            
+            foreach (var item in List)
             {
                 Total += item.Value;
             }
@@ -32,17 +33,20 @@ namespace Takeaway
 
         public void PrintBill()
         {
+            List.Add("Total", Total);
             foreach (KeyValuePair<string, double> item in List)
             {
                 Console.WriteLine("{0}: {1}", item.Key, item.Value);
             }
-            Console.WriteLine("Your total is: " + TotalFormat());
+            //Console.WriteLine("Your total is: " + TotalFormat());
         }
 
         public void Payment(double totalPaid)
         {
-            if (TotalFormat().Equals(totalPaid))
+            bool status = TotalFormat().Equals(totalPaid);
+            if (status)
             {
+               
                 Console.WriteLine("Thank you for your purchase");
             }
             else

@@ -30,7 +30,6 @@ namespace Takeaway
             checkout.Calculate();
             checkout.PrintBill();
             checkout.Payment(55.80);
-            Console.WriteLine("hello");
         }
     }
 }
